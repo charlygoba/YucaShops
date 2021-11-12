@@ -1,0 +1,78 @@
+import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:agenda_dmi/pages/home.dart';
+
+void main() {
+  runApp(
+    const MyApp(),
+  );
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: "Google Auth",
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const MyHomePage(),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({Key? key}) : super(key: key);
+
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  bool _isloggedIn = false;
+
+  GoogleSignInAccount? _userobj;
+  final GoogleSignIn _googleSignIN = GoogleSignIn();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Google Auth"),
+      ),
+      body: _isloggedIn
+          ? Column(
+              children: [
+                Image.network(_userobj!.photoUrl ?? ""),
+                Text(_userobj!.displayName ?? ""),
+                Text(_userobj!.email),
+                TextButton(
+                  onPressed: () {
+                    _googleSignIN.signOut().then((value) {
+                      setState(() {
+                        _isloggedIn = false;
+                      });
+                    });
+                  },
+                  child: const Text("Logout"),
+                )
+              ],
+            )
+          : Center(
+              child: ElevatedButton(
+                child: const Text("Login with Google"),
+                onPressed: () {
+                  _googleSignIN.signIn().then((value) {
+                    setState(() {
+                      _isloggedIn = true;
+                      _userobj = value;
+                    });
+                  }).catchError((e) {});
+                },
+              ),
+            ),
+    );
+  }
+}
