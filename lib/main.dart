@@ -1,8 +1,8 @@
-import 'package:agenda_dmi/pages/googleMaps.dart';
-import 'package:agenda_dmi/drawer/drawer_screen.dart';
+import 'package:yucashops/pages/googleMaps.dart';
+import 'package:yucashops/drawer/drawer_screen.dart';
 import 'package:flutter/material.dart';
-//import 'package:agenda_dmi/pages/home.dart';
-import 'package:agenda_dmi/pages/home_screen.dart';
+//import 'package:yucashops/pages/home.dart';
+import 'package:yucashops/pages/home_screen.dart';
 
 // void main(List<String> args) async {
 //   runApp(MyApp());
