@@ -168,7 +168,7 @@ class MenuLateral extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Drawer(
-      backgroundColor: Colors.purple,
+     // backgroundColor: Colors.purple,
       child: ListView(
         children: <Widget>[
           new UserAccountsDrawerHeader(

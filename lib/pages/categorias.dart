@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:agenda_dmi/configuration/configuration.dart';
 import 'dart:async';
 import 'dart:convert';
-import 'package:agenda_dmi/model/Datos_Contactos.dart';
+import 'package:agenda_dmi/model/Busqueda.dart';
 import 'package:agenda_dmi/pages/googleMaps.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:agenda_dmi/model/ver.dart';
@@ -22,17 +21,17 @@ class _HomeScreenState extends State<HomeScreen> {
   bool isDrawerOpen = false;
   final refreshIndicatorKey = GlobalKey<RefreshIndicatorState>();
   bool loading = true;
-  List<Datos_Students> data = <Datos_Students>[];
-  Future<List<Datos_Students>> getData() async {
-    var url = Uri.parse('http://yucashops.ga/api/public/negocios');
+  List<Datos_Negocio> data = <Datos_Negocio>[];
+  Future<List<Datos_Negocio>> getData() async {
+    var url = Uri.parse('http://yucashops.ga/api/public/search/data?data=');
     var response = await http.get(url, headers: {
       "Accept": "application/json",
     });
 
     var datos = jsonDecode(response.body);
-    late var registros = <Datos_Students>[];
+    late var registros = <Datos_Negocio>[];
     for (datos in datos) {
-      registros.add(Datos_Students.fromJson(datos));
+      registros.add(Datos_Negocio.fromJson(datos));
     }
     return registros;
   }
@@ -219,7 +218,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       itemCount: catMapList.length,
                       scrollDirection: Axis.vertical,
                       shrinkWrap: true,
-                      itemBuilder: (context, index) {
+                      itemBuilder: (context, index) {{}
                         return GestureDetector(
                           onTap: () {
                             var name = data[index].name;
@@ -238,7 +237,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             }));
                           },
                           child: Container(
-                            height: 180,
+                            height: 180,    
                             margin: EdgeInsets.symmetric(horizontal: 10),
                             child: Row(
                               children: [

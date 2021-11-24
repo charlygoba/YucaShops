@@ -6,7 +6,7 @@ import 'package:http/http.dart' as http;
 Future<http.Response?> deleteStudents(String id) async {
   final http.Response response;
   response = await http.delete(
-    Uri.parse('http://192.168.1.72/crudapi/public/students/delete/$id'),
+    Uri.parse('http://192.168.1.72/crudapi/public/students/delete/$id'), //http://yucashops.ga/api/public/negocios
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',
     },
