@@ -8,8 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:yucashops/model/ver.dart';
-
-import 'categoria_artesanal.dart';
+import 'package:yucashops/screens/categoria1.dart';
+//import 'categoria_artesanal.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -186,7 +186,25 @@ class _HomeScreenState extends State<HomeScreen> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => CategoriaScreen()),
+                                    builder: (context) {
+                                      var categorie =
+                                          categories[index]['categoria'];
+
+                                      if (categorie == "Categoria1") {
+                                        return (Categoria1());
+                                      } else if (categorie == "Categoria2") {
+                                        return (Categoria2());
+                                      } else if (categorie == "Categoria3") {
+                                        return (Categoria3());
+                                      } else if (categorie == "Categoria4") {
+                                        return (Categoria4());
+                                      } else if (categorie == "Categoria5") {
+                                        return (Categoria5());
+                                      } else {
+                                        return (categorie);
+                                      }
+                                    },
+                                  ),
                                 );
                               },
                               //return Container(

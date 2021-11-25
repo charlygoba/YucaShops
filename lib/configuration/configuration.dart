@@ -11,11 +11,36 @@ String details = 'My job requires moving to another country. '
     'I am looking for good people who will shelter my pet';
 
 List<Map> categories = [
-  {"id": '40', "name": 'Restaurantes', "imagePath": 'images/restaurant.png'},
-  {"id": '10', "name": 'Tiendas', "imagePath": 'images/retail.png'},
-  {"id": '95', "name": 'Profesionales', "imagePath": 'images/professional.png'},
-  {"id": '80', "name": 'Limpieza', "imagePath": 'images/cleaning.png'},
-  {"id": '104', "name": 'Automotriz', "imagePath": 'images/auto.png'},
+  {
+    "id": '40',
+    "name": 'Restaurantes',
+    "imagePath": 'images/restaurant.png',
+    "categoria": 'Categoria1'
+  },
+  {
+    "id": '10',
+    "name": 'Tiendas',
+    "imagePath": 'images/retail.png',
+    "categoria": 'Categoria2'
+  },
+  {
+    "id": '95',
+    "name": 'Profesionales',
+    "imagePath": 'images/professional.png',
+    "categoria": 'Categoria3'
+  },
+  {
+    "id": '80',
+    "name": 'Limpieza',
+    "imagePath": 'images/cleaning.png',
+    "categoria": 'Categoria4'
+  },
+  {
+    "id": '104',
+    "name": 'Automotriz',
+    "imagePath": 'images/auto.png',
+    "categoria": 'Categoria5'
+  },
 ];
 
 List<Map> catMapList = [

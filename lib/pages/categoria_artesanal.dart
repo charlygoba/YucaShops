@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:yucashops/model/ver.dart';
+import 'package:yucashops/drawer/drawer_screen.dart';
+import 'package:yucashops/screens/categoria1.dart';
 
 class CategoriaScreen extends StatefulWidget {
   @override
@@ -71,6 +73,67 @@ class _CategoriaScreenState extends State<CategoriaScreen> {
               SizedBox(
                 height: 5.0,
               ),
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 5.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    isDrawerOpen
+                        ? IconButton(
+                            onPressed: () {
+                              setState(() {
+                                xOffset = 0;
+                                yOffset = 0;
+                                scaleFactor = 1;
+                                isDrawerOpen = false;
+                              });
+                            },
+                            icon: Icon(Icons.arrow_back_ios),
+                          )
+                        : IconButton(
+                            onPressed: () {
+                              setState(() {
+                                xOffset = 230;
+                                yOffset = 150;
+                                scaleFactor = 0.6;
+                                isDrawerOpen = true;
+                              });
+                            },
+                            icon: Icon(Icons.menu),
+                          ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            IconButton(
+                              onPressed: () {},
+                              icon: Icon(
+                                Icons.restaurant,
+                                color: primaryColor,
+                                size: 20,
+                              ),
+                            ),
+                            Text(
+                              'RESTAURANTES',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(right: 10.0),
+                      child: CircleAvatar(
+                        backgroundImage: AssetImage('images/pet_cat1.png'),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
               SizedBox(
                 height: 10.0,
               ),
@@ -86,6 +149,32 @@ class _CategoriaScreenState extends State<CategoriaScreen> {
                     SizedBox(
                       height: 30.0,
                     ),
+                    Container(
+                      margin: EdgeInsets.symmetric(horizontal: 15.0),
+                      child: TextField(
+                        decoration: InputDecoration(
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.transparent),
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: primaryColor),
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          prefixIcon: Icon(
+                            Icons.search,
+                            color: Colors.grey[400],
+                          ),
+                          hintText: '¿Que deseas encontrar?',
+                          hintStyle: TextStyle(
+                              letterSpacing: 1, color: Colors.grey[400]),
+                          filled: true,
+                          fillColor: Colors.white,
+                          suffixIcon:
+                              Icon(Icons.tune_sharp, color: Colors.grey[400]),
+                        ),
+                      ),
+                    ),
                     SizedBox(
                       height: 30.0,
                     ),
@@ -95,8 +184,34 @@ class _CategoriaScreenState extends State<CategoriaScreen> {
                           scrollDirection: Axis.horizontal,
                           itemCount: categories.length,
                           itemBuilder: (context, index) {
-                            return Container(
-                              padding: EdgeInsets.all(10),
+                            return GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) {
+                                      var categorie =
+                                          categories[index]['categoria'];
+
+                                      if (categorie == "Categoria1") {
+                                        return (Categoria1());
+                                      } else if (categorie == "Categoria2") {
+                                        return (Categoria2());
+                                      } else if (categorie == "Categoria3") {
+                                        return (Categoria3());
+                                      } else if (categorie == "Categoria4") {
+                                        return (Categoria4());
+                                      } else if (categorie == "Categoria5") {
+                                        return (Categoria5());
+                                      } else {
+                                        return (categorie);
+                                      }
+                                    },
+                                  ),
+                                );
+                              },
+                              //return Container(
+                              //padding: EdgeInsets.all(10),
                               child: Column(
                                 children: [
                                   Container(
@@ -119,10 +234,12 @@ class _CategoriaScreenState extends State<CategoriaScreen> {
                                   Text(
                                     categories[index]['name'],
                                     style: TextStyle(
-                                      fontSize: 10,
                                       color: Colors.grey[700],
                                     ),
                                   ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 100.0),
+                                  )
                                 ],
                               ),
                             );
