@@ -1,4 +1,4 @@
-import 'package:agenda_dmi/pages/home.dart';
+import 'package:yucashops/pages/home.dart';
 import 'package:flutter/material.dart';
 import 'controllers.dart';
 import 'package:flutter/services.Dart';

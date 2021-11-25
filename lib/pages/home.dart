@@ -1,13 +1,13 @@
 import 'dart:async';
 import 'dart:convert';
-import 'package:agenda_dmi/model/Datos_Contactos.dart';
-import 'package:agenda_dmi/pages/googleMaps.dart';
+import 'package:yucashops/model/Datos_Contactos.dart';
+import 'package:yucashops/pages/googleMaps.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
-//import 'package:agenda_dmi/model/editar.dart';
-import 'package:agenda_dmi/model/ver.dart';
-import 'package:agenda_dmi/model/agregar.dart';
+//import 'package:yucashops/model/editar.dart';
+import 'package:yucashops/model/ver.dart';
+import 'package:yucashops/model/agregar.dart';
 
 // void main() {
 //   runApp(new MaterialApp(
