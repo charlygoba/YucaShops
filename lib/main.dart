@@ -33,7 +33,7 @@ class Splash2 extends StatelessWidget {
     return SplashScreen(
       seconds: 4,
       navigateAfterSeconds: new Home(),
-      image: new Image.asset('../images/logoy.png'),
+      image: new Image.asset('images/logoy.png'),
       loadingText: Text("Loading"),
       photoSize: 100.0,
       loaderColor: Colors.blue,
