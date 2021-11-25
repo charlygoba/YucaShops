@@ -347,16 +347,20 @@ class _BienvenidaState extends State<Students> {
   }
 
   void whatsAppOpen() async {
-    bool whatsapp = await FlutterLaunch.hasApp(name: "whatsapp");
+    await FlutterLaunch.launchWhatsapp(
+        phone: "529993392544", message: "Hola Deseo mas informacion");
+  }
+
+  /*
+  bool whatsapp = await FlutterLaunch.hasApp(name: "whatsapp");
 
     if (whatsapp) {
-      await FlutterLaunch.launchWhatsapp(
-          phone: "5534992016100", message: "Hello, flutter_launch");
+      
     } else {
       setState(() {
         err = false;
         msgErr = 'No hay whatsapp';
       });
     }
-  }
+  */
 }

@@ -3,6 +3,7 @@ import 'package:yucashops/configuration/configuration.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'package:yucashops/model/Datos_Contactos.dart';
+import 'package:yucashops/pages/categoria_artesanal.dart';
 import 'package:yucashops/pages/googleMaps.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -179,8 +180,16 @@ class _HomeScreenState extends State<HomeScreen> {
                           scrollDirection: Axis.horizontal,
                           itemCount: categories.length,
                           itemBuilder: (context, index) {
-                            return Container(
-                              padding: EdgeInsets.all(10),
+                            //return Container(
+                            return GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => CategoriaScreen()),
+                                );
+                              },
+                              // padding: EdgeInsets.all(10),
                               child: Column(
                                 children: [
                                   Container(
@@ -216,7 +225,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     ListView.builder(
                       physics: ScrollPhysics(),
-                      itemCount: catMapList.length,
+                      itemCount: data.length,
                       scrollDirection: Axis.vertical,
                       shrinkWrap: true,
                       itemBuilder: (context, index) {

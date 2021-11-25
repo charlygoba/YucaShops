@@ -12,7 +12,7 @@ String details = 'My job requires moving to another country. '
 
 List<Map> categories = [
   {"id": '40', "name": 'Restaurantes', "imagePath": 'images/restaurant.png'},
-  {"id": '55', "name": 'Tiendas', "imagePath": 'images/retail.png'},
+  {"id": '10', "name": 'Tiendas', "imagePath": 'images/retail.png'},
   {"id": '95', "name": 'Profesionales', "imagePath": 'images/professional.png'},
   {"id": '80', "name": 'Limpieza', "imagePath": 'images/cleaning.png'},
   {"id": '104', "name": 'Automotriz', "imagePath": 'images/auto.png'},
