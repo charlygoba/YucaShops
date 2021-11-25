@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:yucashops/configuration/configuration.dart';
+import 'package:yucashops/pages/home_screen.dart';
+
+import '../main.dart';
 
 class DrawerScreen extends StatefulWidget {
   @override
@@ -55,6 +58,26 @@ class _DrawerScreenState extends State<DrawerScreen> {
                           fontSize: 18.0,
                         ),
                       ),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              var opciones = e['title'];
+
+                              if (opciones == "Negocios") {
+                                return (Home());
+                              } else if (opciones == "Mis Negocios") {
+                                return (Home());
+                              } else if (opciones == "Agregar Negocio") {
+                                return (Home());
+                              } else {
+                                return (opciones);
+                              }
+                            },
+                          ),
+                        );
+                      },
                     ))
                 .toList(),
           ),

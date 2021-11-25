@@ -57,7 +57,8 @@ class _BienvenidaState extends State<Students> {
                         tag: 'Tienda',
                         child: Image(
                           image: NetworkImage(
-                              'http://192.168.1.72/yucashops/admin/public/storage/generic/logo_business.png'),
+                              'http://192.168.1.72/yucashops/admin/public/storage/' +
+                                  widget.image),
                         ),
                       ),
                     ),

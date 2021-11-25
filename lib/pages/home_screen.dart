@@ -9,6 +9,8 @@ import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:yucashops/model/ver.dart';
 import 'package:yucashops/screens/categoria1.dart';
+
+import 'buscador.dart';
 //import 'categoria_artesanal.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -103,21 +105,18 @@ class _HomeScreenState extends State<HomeScreen> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            IconButton(
+                            /* IconButton(
                               onPressed: () {},
                               icon: Icon(
                                 Icons.location_on,
                                 color: primaryColor,
                                 size: 20,
                               ),
-                            ),
-                            Text(
-                              'Mérida, ',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            Text('Yucatán'),
+                            ),*/
+                            Image(
+                              width: 150,
+                              image: AssetImage('images/logoy.png'),
+                            )
                           ],
                         )
                       ],
@@ -135,6 +134,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 10.0,
               ),
               Container(
+                width: double.infinity,
                 decoration: BoxDecoration(
                   color: Colors.grey[200],
                   borderRadius: BorderRadius.only(
@@ -144,9 +144,34 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Column(
                   children: [
                     SizedBox(
-                      height: 30.0,
+                      height: 20.0,
                     ),
                     Container(
+                      child: RaisedButton.icon(
+                        padding: EdgeInsets.all(15),
+                        label: Text(
+                          "Haz click para buscar lo que deseas",
+                          style: new TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                        icon: Icon(
+                          Icons.search,
+                          size: 18.0,
+                        ),
+                        colorBrightness: Brightness.dark,
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute<Null>(
+                              builder: (BuildContext context) {
+                            return FilterNetworkListPage();
+                          }));
+                        },
+                        color: Colors.pink[600],
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30)),
+                      ),
+                    ),
+                    /*Container(
                       margin: EdgeInsets.symmetric(horizontal: 15.0),
                       child: TextField(
                         decoration: InputDecoration(
@@ -171,7 +196,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               Icon(Icons.tune_sharp, color: Colors.grey[400]),
                         ),
                       ),
-                    ),
+                    ),*/
                     SizedBox(
                       height: 30.0,
                     ),
@@ -314,7 +339,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                             tag: 'Tienda',
                                             child: Image(
                                               image: NetworkImage(
-                                                  'http://192.168.1.72/yucashops/admin/public/storage/generic/logo_business.png'),
+                                                  'http://192.168.1.72/yucashops/admin/public/storage/' +
+                                                      data[index].image),
                                             ),
                                           ),
                                           /*child: Hero(
@@ -438,6 +464,17 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  void buscadorPage(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) {
+          return FilterNetworkListPage();
+        },
       ),
     );
   }

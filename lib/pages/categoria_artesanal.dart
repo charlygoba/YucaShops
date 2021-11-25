@@ -11,6 +11,8 @@ import 'package:yucashops/model/ver.dart';
 import 'package:yucashops/drawer/drawer_screen.dart';
 import 'package:yucashops/screens/categoria1.dart';
 
+import 'buscador.dart';
+
 class CategoriaScreen extends StatefulWidget {
   @override
   _CategoriaScreenState createState() => _CategoriaScreenState();
@@ -78,29 +80,15 @@ class _CategoriaScreenState extends State<CategoriaScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    isDrawerOpen
-                        ? IconButton(
-                            onPressed: () {
-                              setState(() {
-                                xOffset = 0;
-                                yOffset = 0;
-                                scaleFactor = 1;
-                                isDrawerOpen = false;
-                              });
-                            },
-                            icon: Icon(Icons.arrow_back_ios),
-                          )
-                        : IconButton(
-                            onPressed: () {
-                              setState(() {
-                                xOffset = 230;
-                                yOffset = 150;
-                                scaleFactor = 0.6;
-                                isDrawerOpen = true;
-                              });
-                            },
-                            icon: Icon(Icons.menu),
-                          ),
+                    IconButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: Icon(
+                        Icons.arrow_back_ios_rounded,
+                        color: Colors.pink[600],
+                      ),
+                    ),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -147,9 +135,35 @@ class _CategoriaScreenState extends State<CategoriaScreen> {
                 child: Column(
                   children: [
                     SizedBox(
-                      height: 30.0,
+                      height: 20.0,
                     ),
                     Container(
+                      child: RaisedButton.icon(
+                        padding: EdgeInsets.all(15),
+                        label: Text(
+                          "Haz click para buscar lo que deseas",
+                          style: new TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                        icon: Icon(
+                          Icons.search,
+                          size: 18.0,
+                        ),
+                        colorBrightness: Brightness.dark,
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute<Null>(
+                              builder: (BuildContext context) {
+                            return FilterNetworkListPage();
+                          }));
+                        },
+                        color: Colors.pink[600],
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30)),
+                      ),
+                    ),
+                    //BUSCADOR ANTIGUO
+                    /*Container(
                       margin: EdgeInsets.symmetric(horizontal: 15.0),
                       child: TextField(
                         decoration: InputDecoration(
@@ -174,7 +188,8 @@ class _CategoriaScreenState extends State<CategoriaScreen> {
                               Icon(Icons.tune_sharp, color: Colors.grey[400]),
                         ),
                       ),
-                    ),
+                    ),*/
+                    //BUSCADOR ANTIGUO
                     SizedBox(
                       height: 30.0,
                     ),

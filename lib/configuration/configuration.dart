@@ -107,10 +107,10 @@ List<Map> catMapList = [
 ];
 
 List<Map> navList = [
-  {'icon': Icons.pets_rounded, 'title': 'Negocios'},
+  {'icon': Icons.store, 'title': 'Negocios'},
   {'icon': Icons.markunread_mailbox_rounded, 'title': 'Mis negocios'},
   {'icon': Icons.add_rounded, 'title': 'Agregar negocio'},
-  {'icon': Icons.favorite_rounded, 'title': 'Favoritos'},
-  {'icon': Icons.mail_rounded, 'title': 'Mensajes'},
-  {'icon': Icons.person, 'title': 'Perfil'},
+  //{'icon': Icons.favorite_rounded, 'title': 'Favoritos'},
+  //{'icon': Icons.mail_rounded, 'title': 'Mensajes'},
+  //{'icon': Icons.person, 'title': 'Perfil'},
 ];

@@ -31,7 +31,7 @@ class Datos_Students {
     address = json['address'];
     latitud = json['latitud'];
     longitud = json['longitud'];
-    image = json['image'];
+    image = json['logo'];
     activityid = json['activity_id'];
   }
 }
