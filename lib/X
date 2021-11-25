@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:agenda_dmi/pages/home.dart';
+import 'package:yucashops/pages/home.dart';
 
 void main() {
   runApp(

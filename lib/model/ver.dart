@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:yucashops/configuration/configuration.dart';
 import 'controllers.dart';
+//import 'package:flutter_open_whatsapp/flutter_open_whatsapp.dart';
+//import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_launch/flutter_launch.dart';
 
 class Students extends StatefulWidget {
   String id;
@@ -15,14 +18,17 @@ class Students extends StatefulWidget {
   String latitud;
   String longitud;
   String image;
+  String activity_id;
   Students(this.id, this.name, this.phone, this.description, this.email,
-      this.address, this.latitud, this.longitud, this.image);
+      this.address, this.latitud, this.longitud, this.image, this.activity_id);
 
   @override
   _BienvenidaState createState() => _BienvenidaState();
 }
 
 class _BienvenidaState extends State<Students> {
+  bool err = false;
+  String msgErr = '';
   late String id;
   late String name;
   late String phone;
@@ -32,6 +38,7 @@ class _BienvenidaState extends State<Students> {
   late String latitud;
   late String longitud;
   late String image;
+  late String activity_id;
   final formkey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -305,7 +312,7 @@ class _BienvenidaState extends State<Students> {
                     ),
                     RaisedButton.icon(
                       onPressed: () {
-                        _seeMaps(context);
+                        whatsAppOpen();
                       },
                       shape: RoundedRectangleBorder(
                           borderRadius:
@@ -337,5 +344,19 @@ class _BienvenidaState extends State<Students> {
         .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
       return GoogleMaps(widget.latitud, widget.longitud, widget.name);
     }));
+  }
+
+  void whatsAppOpen() async {
+    bool whatsapp = await FlutterLaunch.hasApp(name: "whatsapp");
+
+    if (whatsapp) {
+      await FlutterLaunch.launchWhatsapp(
+          phone: "5534992016100", message: "Hello, flutter_launch");
+    } else {
+      setState(() {
+        err = false;
+        msgErr = 'No hay whatsapp';
+      });
+    }
   }
 }

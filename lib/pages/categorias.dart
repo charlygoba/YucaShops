@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+/*import 'package:flutter/material.dart';
 import 'package:yucashops/configuration/configuration.dart';
 import 'dart:async';
 import 'dart:convert';
@@ -9,12 +9,12 @@ import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:yucashops/model/ver.dart';
 
-class HomeScreen extends StatefulWidget {
+class CategoriaScreen extends StatefulWidget {
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _CategoriaScreen State createState() => _CategoriaScreen State();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _CategoriaScreen State extends State<CategoriaScreen > {
   double xOffset = 0;
   double yOffset = 0;
   double scaleFactor = 1;
@@ -231,21 +231,11 @@ class _HomeScreenState extends State<HomeScreen> {
                             var latitud = data[index].latitud;
                             var longitud = data[index].longitud;
                             var image = data[index].image;
-                            String activityid =
-                                data[index].activityid.toString();
+                            var activityid = data[index].activityid;
                             Navigator.of(context).push(MaterialPageRoute<Null>(
                                 builder: (BuildContext context) {
-                              return new Students(
-                                  id,
-                                  name,
-                                  phone,
-                                  description,
-                                  email,
-                                  address,
-                                  latitud,
-                                  longitud,
-                                  image,
-                                  activityid);
+                              return new Students(id, name, phone, description,
+                                  email, address, latitud, longitud, image, activityid );
                             }));
                           },
                           child: Container(
@@ -411,3 +401,4 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+*/

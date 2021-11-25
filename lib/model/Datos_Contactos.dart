@@ -8,6 +8,7 @@ class Datos_Students {
   late String latitud;
   late String longitud;
   late String image;
+  late int activityid;
 
   Datos_Students(
       int id,
@@ -18,7 +19,8 @@ class Datos_Students {
       String address,
       String latitud,
       String longitud,
-      String image);
+      String image,
+      int activityid);
 
   Datos_Students.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -30,5 +32,6 @@ class Datos_Students {
     latitud = json['latitud'];
     longitud = json['longitud'];
     image = json['image'];
+    activityid = json['activity_id'];
   }
 }

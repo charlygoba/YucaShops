@@ -1,6 +1,6 @@
 {
-    "name": "agenda_dmi",
-    "short_name": "agenda_dmi",
+    "name": "yucashops",
+    "short_name": "yucashops",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

@@ -1,4 +1,4 @@
-package com.example.agenda_dmi
+package com.example.yucashops
 
 import io.flutter.embedding.android.FlutterActivity
 

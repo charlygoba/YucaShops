@@ -82,6 +82,8 @@ class HomePageState extends State<HomePage> {
                               var latitud = data[index].latitud;
                               var longitud = data[index].longitud;
                               var image = data[index].image;
+                              String activityid =
+                                  data[index].activityid.toString();
                               Navigator.of(context).push(
                                   MaterialPageRoute<Null>(
                                       builder: (BuildContext context) {
@@ -94,7 +96,8 @@ class HomePageState extends State<HomePage> {
                                     address,
                                     latitud,
                                     longitud,
-                                    image);
+                                    image,
+                                    activityid);
                               }));
                               // .then((value) => setState(() {
                               //       getData().then((value) {

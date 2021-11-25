@@ -35,7 +35,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.example.agenda_dmi"
+        applicationId "yucashops"
         minSdkVersion 23
         targetSdkVersion 30
         versionCode flutterVersionCode.toInteger()
@@ -62,7 +62,7 @@ dependencies {
 
 android {
     defaultConfig{
-        applicationId "com.example.agenda_dmi"
+        applicationId "com.example.yucashops"
         minSdkVersion 20
         targetSdkVersion 30
         versionCode flutterVersionCode.toInteger()
