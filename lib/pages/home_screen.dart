@@ -9,6 +9,8 @@ import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:yucashops/model/ver.dart';
 
+import 'categoria_artesanal.dart';
+
 class HomeScreen extends StatefulWidget {
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -179,8 +181,16 @@ class _HomeScreenState extends State<HomeScreen> {
                           scrollDirection: Axis.horizontal,
                           itemCount: categories.length,
                           itemBuilder: (context, index) {
-                            return Container(
-                              padding: EdgeInsets.all(10),
+                            return GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => CategoriaScreen()),
+                                );
+                              },
+                              //return Container(
+                              //padding: EdgeInsets.all(10),
                               child: Column(
                                 children: [
                                   Container(
@@ -206,6 +216,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                       color: Colors.grey[700],
                                     ),
                                   ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 100.0),
+                                  )
                                 ],
                               ),
                             );
