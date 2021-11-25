@@ -1,8 +1,8 @@
-import 'package:agenda_dmi/pages/googleMaps.dart';
-import 'package:agenda_dmi/pages/home.dart';
+import 'package:yucashops/pages/googleMaps.dart';
+import 'package:yucashops/pages/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:agenda_dmi/configuration/configuration.dart';
+import 'package:yucashops/configuration/configuration.dart';
 import 'controllers.dart';
 
 class Students extends StatefulWidget {

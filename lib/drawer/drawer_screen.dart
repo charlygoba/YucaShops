@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:agenda_dmi/configuration/configuration.dart';
+import 'package:yucashops/configuration/configuration.dart';
 
 class DrawerScreen extends StatefulWidget {
   @override
